@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <title>Cities!</title>
+    <header>City game by Jeremy Murray</header>
+ 
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_city">Where in the world </label>
+    <input type ="password" id="form1_city" name="form1_city" min=10 max=50 step=2 value="San Diego"> <br>
+
+    <label for="form1_guess">Guess the city </label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="checkCity()" value="Check the guess">
+</form>
+<div id="bruh">
+    <text></text>
+</div>
+
+<script type="text/javascript"> 
+var oops = 0
+var found = 0
+function checkCity(){
+    city = document.getElementById("form1_city").value
+    guess = document.getElementById("form1_guess").value
+    if (city == guess) {
+        alert("GotCha") 
+        found = found + 1
+        document.getElementById("result").innerText = found
+        }
+    else{
+        alert("Awe")
+        oops = oops + 1
+    }
+    document.getElementById("result").innerText = "Oops: " + oops + " Found: " + found
+}
+</script>
+<p id="result"></p>
+</body>
+</html> 
