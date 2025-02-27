@@ -21,9 +21,16 @@
 <div id="results">
 
 </div>
+<div id="radios">
+    <label for="product">Product</label>
+    <input type="radio" id="product" value="times" onclick="chooseOp()"> <br>
+    <label for="sum">Sum</label>
+    <input type="radio" id="sum" value="add" onclick="chooseOp()"> <br>
+    <label for="mod">Mod</label>
+    <input type="radio" id="mod" value="mod" onclick="chooseOp()"> <br>
+</div>
 
-
-<p id="result"> </p>
+<div id="operations"> </div>
 
 <script> 
 function amounts(){
@@ -41,9 +48,24 @@ function amounts(){
        }
        myResults += size + " costs " + price + ", ";
     }
-    result.innerHTML = "Totals are: " + myResults
+    results.innerHTML = "Totals are: " + myResults
 }
 
+function chooseOp() {
+    var result = ""
+    price = document.getElementById("basicPrice").value
+    breakAt = document.getElementById("breakAt").value
+    if(document.getElementById("sum").checked){
+        result += (price + " plus " + breakAt + " is " + (price+breakAt) + ", ")
+    }
+    if(document.getElementById("mod").checked){
+        result += (price + " mod " + breakAt + " is " + (price%breakAt) + ", ")
+    }
+    if(document.getElementById("product").checked){
+        result += (price + " multiplied by " + breakAt + " is " + (price*breakAt) + ", ")
+    }
+    operations.innerHTML = "results are: " + result
+}
 
 function resolveForm (){
     console.log("Getting form values")
