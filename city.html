@@ -20,9 +20,15 @@
     <text></text>
 </div>
 
+<div>
+    <img id="image" src="Green-anaconda-Eunectes-murinus.webp" width="150" length="150" alt="Rat" onclick="changePic()">
+</div>
+
 <script type="text/javascript"> 
 var oops = 0
 var found = 0
+let usePic = 1
+const image = document.getElementById("image")
 function checkCity(){
     city = document.getElementById("form1_city").value
     guess = document.getElementById("form1_guess").value
@@ -36,6 +42,21 @@ function checkCity(){
         oops = oops + 1
     }
     document.getElementById("result").innerText = "Oops: " + oops + " Found: " + found
+}
+function changePic() {
+    if (usePic == 4) usePic = 1;
+    switch(usePic) {
+        case 1: 
+        image.src = "Green-anaconda-Eunectes-murinus.webp";
+        break;
+        case 2: 
+        image.src = "cccd9ab3a8832417497e233c1cb92b9e.webp";
+        break; 
+        case 3: 
+        image.src = "rat-1280x720.png";
+        break;
+    }
+    usePic = usePic + 1
 }
 </script>
 <p id="result"></p>

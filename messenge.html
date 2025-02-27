@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <header>The Cost of Messages</header>
+ <title> The Cost of Messages</title>
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="basicPrice">Enter Cost per Letter </label>
+    <input type ="number" id="basicPrice" name="basicPrice" value=0.5 autofocus> <br>
+
+    <label for="breakAt">Enter the length to give a discount </label>
+    <input type ="number" id="breakAt" name="breakAt" value=9 autofocus> <br>
+
+    <label for="discount">Enter discount percent </label>
+    <input type ="number" id="discount" name="discount" value=10 autofocus> <br>
+
+    <input type="button" value="Show Total" onclick="amounts()">
+</form>
+<div id="results">
+
+</div>
+
+
+<p id="result"> </p>
+
+<script> 
+function amounts(){
+    basicPrice = document.getElementById("basicPrice").value
+    breakAt = document.getElementById("breakAt").value
+    discount = document.getElementById("discount").value
+    var myResults = ""
+    for(i=0;i<7;i++){
+        size=breakAt-3+i;
+       if (size<breakAt){
+        price = basicPrice*size
+       } 
+       else{
+        price = size*basicPrice*(discount/100)
+       }
+       myResults += size + " costs " + price + ", ";
+    }
+    result.innerHTML = "Totals are: " + myResults
+}
+
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
