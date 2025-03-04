@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <header> Getting Dinner with Jeremy Murray</header>
+ <title> Getting Dinner</title>
+<body>
+    <label for="wine"> Serve Wine</label>
+    <input type="checkbox" id="wine" checked="true"> <br>
+    <label for="outside"> Serve Outside</label>
+    <input type="checkbox" id="outside" checked="true"> <br>
+    <label for="candle"> Light Candles</label>
+    <input type="checkbox" id="candle"> <br>
+    <input type="button" onclick="choices()" value="Dinner Choices"> <br>
+
+    <div id="dinner">
+    </div>
+    <h2>Getting input</h2>
+
+<form>
+    <label for="main">Enter Main Dish </label>
+    <input type ="text" id="main" name="main" value="Butter Chicken"> <br>
+    <label for="dessert">Enter Dessert </label>
+    <input type ="text" id="dessert" name="dessert"> <br>
+
+    <input type="button" onclick="updateDinner()" value="Update Dinner">
+</form>
+<div id="result"></div>
+
+<script> 
+    var my_dinner = {};
+function choices(){
+    my_dinner = {}
+    my_dinner.wine=false
+    my_dinner.outside=false
+    my_dinner.candle=false
+    if (document.getElementById("wine").checked){
+        my_dinner.wine=true
+    }
+    if(document.getElementById("outside").checked){
+        my_dinner.outside=true
+    }
+    if(document.getElementById("candle").checked){
+        my_dinner.candle=true
+    }
+    dinner.innerHTML= Object.entries(my_dinner)
+}
+function updateDinner(){
+    my_dinner = {}
+    my_dinner.main = document.getElementById("main").value
+    my_dinner.dessert = document.getElementById("dessert").value
+    result.innerHTML= Object.entries(my_dinner)
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
